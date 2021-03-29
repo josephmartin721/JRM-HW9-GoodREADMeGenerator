@@ -34,13 +34,15 @@ const questions = [{
 
 
 // TODO: Create a function to write README file
-async function writeToFile(fileName, data) {
-  writeFileAsync(fileName, data).then(function () {
-      console.log("Successfully wrote README!");
-  }).catch(err => {
-      console.log('err ', err);
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, data, err => {
+      if (err) {
+        return console.log(err);
+      }
+    
+      console.log("Success! Your README.md file has been generated")
   });
-};
+}
 
 const writeFileAsync = util.promisify(writeToFile);
 
