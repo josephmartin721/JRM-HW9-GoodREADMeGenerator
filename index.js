@@ -7,17 +7,17 @@ const util = require('util');
 // TODO: Create an array of questions for user input
 const questions = [{
   type: "input",
-  message: "Enter your Github username: ",
+  message: "Github username: ",
   name: "username"
 },
 {
   type: "input",
-  message: "Enter your project name: ",
+  message: "Project name: ",
   name: "title"
 },
 {
   type: "input",
-  message: "Enter the project: ",
+  message: "Project description: ",
   name: "description"
 },
 {
@@ -27,32 +27,20 @@ const questions = [{
 },
 {
   type: "input",
-  message: "Enter the need: ",
+  message: "Enter the purpose: ",
   name: "usage"
 
-},
-{
-  type: "input",
-  message: "Enter contributing information: ",
-  name: "contribute"
-
-}, {
-  type: "input",
-  message: "Enter any tests you are running for your project: ",
-  name: "tests"
-}];
+},];
 
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-  fs.writeFile(fileName, data, err => {
-      if (err) {
-        return console.log(err);
-      }
-    
-      console.log("Success! Your README.md file has been generated")
+async function writeToFile(fileName, data) {
+  writeFileAsync(fileName, data).then(function () {
+      console.log("Successfully wrote README!");
+  }).catch(err => {
+      console.log('err ', err);
   });
-}
+};
 
 const writeFileAsync = util.promisify(writeToFile);
 
