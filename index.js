@@ -12,29 +12,24 @@ const questions = [{
 },
 {
   type: "input",
-  message: "Enter your project title: ",
+  message: "Enter your project name: ",
   name: "title"
 },
 {
   type: "input",
-  message: "Enter a short project description: ",
+  message: "Enter the project: ",
   name: "description"
 },
 {
   type: "input",
-  message: "Enter the installation process: ",
+  message: "Enter your process: ",
   name: "installation"
 },
 {
   type: "input",
-  message: "Enter the usage of the project: ",
+  message: "Enter the need: ",
   name: "usage"
 
-},
-{
-  type: "input",
-  message: "Enter licenses used for the project: ",
-  name: "licenses"
 },
 {
   type: "input",
