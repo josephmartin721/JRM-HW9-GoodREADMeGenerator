@@ -1,7 +1,9 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
+const axios = require('axios');
 const fs = require('fs');
-const util = require('util');
+const path = require('path');
+const util = require('util')
 
 
 // TODO: Create an array of questions for user input
@@ -40,7 +42,7 @@ function writeToFile(fileName, data) {
         return console.log(err);
       }
     
-      console.log("Success! Your README.md file has been generated")
+      console.log("Congrats! Your README is operational!")
   });
 }
 
@@ -48,8 +50,25 @@ const writeFileAsync = util.promisify(writeToFile);
 
 
 // TODO: Create a function to initialize app
-function init() {}
 
+async function init() {
+  try {
+      const userResponses = await inquirer.prompt(questions);
+      console.log("Your responses: ", userResponses);
+      console.log("Thank you for your responses! Fetching your GitHub data next...");
+  
+      const userInfo = await api.getUser(userResponses);
+      console.log("Your GitHub user info: ", userInfo);
+  
+      console.log("Generating your README next...")
+      const markdown = generateMarkdown(userResponses, userInfo);
+      console.log(markdown);
+  
+      await writeFileAsync('ExampleREADME.md', markdown);
 
-// Function call to initialize app
+  } catch (error) {
+      console.log(error);
+  }
+};
+
 init();
