@@ -11,7 +11,7 @@ const generateMarkdown = require('./utils/generateMarkdown.js');
 const questions = [{
   type: "input",
   message: "Github username: ",
-  name: "username"
+  name: "user"
 },
 {
   type: "input",
@@ -31,12 +31,13 @@ const questions = [{
 {
   type: "input",
   message: "Enter the purpose: ",
-  name: "usage"
+  name: "purpose"
 
 },];
 
 
 // TODO: Create a function to write README file
+
 function writeToFile(fileName, data) {
   fs.writeFile(fileName, data, err => {
       if (err) {
