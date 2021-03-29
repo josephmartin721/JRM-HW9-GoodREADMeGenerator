@@ -60,7 +60,7 @@ async function init() {
       const userInfo = await api.getUser(userResponses);
       console.log("Your GitHub user info: ", userInfo);
   
-      console.log("Generating your README next...")
+      console.log("Writing your README")
       const markdown = generateMarkdown(userResponses, userInfo);
       console.log(markdown);
   
