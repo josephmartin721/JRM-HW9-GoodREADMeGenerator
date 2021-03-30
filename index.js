@@ -25,13 +25,19 @@ const questions = [{
 },
 {
   type: "input",
-  message: "Enter your process: ",
-  name: "installation"
+  message: "Enter your purpose: ",
+  name: "purpose"
 },
 {
   type: "input",
-  message: "Enter the purpose: ",
-  name: "purpose"
+  message: "Enter the process: ",
+  name: "process"
+
+},
+{
+  type: "input",
+  message: "Questions can be directed to ${data.username} through GitHub: ",
+  name: "questions"
 
 },];
 
