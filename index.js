@@ -36,7 +36,7 @@ const questions = [{
 },
 {
   type: "input",
-  message: "Questions can be directed to ${data.username} through GitHub: ",
+  message: "Questions can be directed to the author through GitHub: ",
   name: "questions"
 
 },];
